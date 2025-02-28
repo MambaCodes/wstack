@@ -7,7 +7,7 @@ import { signOut } from 'next-auth/react'
 export default function Dashboard() {
   const { data: session, status } = useSession()
   const router = useRouter()
-  console.log("Docs URL:", process.env.NEXT_PUBLIC_DOCS_URL);
+ 
   useEffect(() => {
     if (status === 'unauthenticated') {
       router.push('/login')
