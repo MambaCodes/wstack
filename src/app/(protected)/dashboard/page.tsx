@@ -7,7 +7,7 @@ import { signOut } from 'next-auth/react'
 export default function Dashboard() {
   const { data: session, status } = useSession()
   const router = useRouter()
-
+  console.log("Docs URL:", process.env.NEXT_PUBLIC_DOCS_URL);
   useEffect(() => {
     if (status === 'unauthenticated') {
       router.push('/login')
@@ -30,7 +30,7 @@ export default function Dashboard() {
           <p className="text-md text-gray-400 text-center">
             Learn how to use Wstack by visiting our{' '}
             <a
-              href="https://github.com/MambaCodes/wstack-docs"
+              href={process.env.NEXT_PUBLIC_DOCS_URL}
               target="_blank"
               className="text-blue-400 hover:underline"
             >
