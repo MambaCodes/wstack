@@ -1,23 +1,9 @@
 'use client'
 
 import { useSession } from 'next-auth/react'
-import { useRouter } from 'next/navigation'
-import { useEffect } from 'react'
 import { signOut } from 'next-auth/react'
 export default function Dashboard() {
-  const { data: session, status } = useSession()
-  const router = useRouter()
- 
-  useEffect(() => {
-    if (status === 'unauthenticated') {
-      router.push('/login')
-    }
-  }, [status, router])
-
-  if (status === 'loading') {
-    return <p>Loading...</p>
-  }
-
+  const { data: session, status } = useSession();
 
     return (
       <div className="flex min-h-screen animate-pulse flex-col items-center justify-center bg-gradient-to-br from-purple-800 via-purple-900 to-black">

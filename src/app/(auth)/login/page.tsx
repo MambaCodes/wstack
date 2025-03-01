@@ -1,24 +1,10 @@
 'use client'
 
-import { signIn, signOut, useSession } from 'next-auth/react'
+import { signIn  } from 'next-auth/react'
 import Image from 'next/image'
-import { useRouter } from 'next/navigation'
-
 
 export default function Login() {
-  const { data: session, status } = useSession()
-
-  const router = useRouter();
-
-  if (status === 'authenticated') {
-    setTimeout(() => router.push("/dashboard"), 0);
-    return (
-      <p>
-        Loading...
-      </p>
-    );
-  }
-
+  
   return (
     <div className="flex min-h-screen flex-col items-center justify-center rounded-xl bg-gradient-to-br from-purple-800 via-purple-900 to-black p-4">
       <div className="w-full max-w-md rounded-lg bg-gray-800 p-8 text-white shadow-lg">
