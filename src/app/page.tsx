@@ -1,7 +1,7 @@
 'use client'
 import { useState } from 'react'
-import Login from './(auth)/login/page'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import Dashboard from './(protected)/dashboard/page'
 
 export default function Home() {
   const [queryClient] = useState(() => new QueryClient())
@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <QueryClientProvider client={queryClient}>
       <div>
-        <Login />
+        <Dashboard />
       </div>
     </QueryClientProvider>
   )

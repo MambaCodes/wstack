@@ -1,30 +1,10 @@
 'use client'
 
-import { signIn, signOut, useSession } from 'next-auth/react'
+import { signIn  } from 'next-auth/react'
 import Image from 'next/image'
 
 export default function Login() {
-  const { data: session, status } = useSession()
-
-  if (status === 'authenticated') {
-    return (
-      <div className="flex min-h-screen animate-pulse flex-col items-center justify-center bg-gradient-to-br from-purple-800 via-purple-900 to-black">
-        <h1 className="mb-4 text-2xl font-bold text-white">
-          Welcome, {session.user?.name}!
-        </h1>
-        <div className="flex flex-col gap-y-3">
-          <p className="text-lg text-gray-300">You are now logged in.</p>
-          <button
-            onClick={() => signOut()}
-            className="rounded bg-red-500 px-4 py-2 font-bold text-white hover:bg-red-700"
-          >
-            Sign Out
-          </button>
-        </div>
-      </div>
-    )
-  }
-
+  
   return (
     <div className="flex min-h-screen flex-col items-center justify-center rounded-xl bg-gradient-to-br from-purple-800 via-purple-900 to-black p-4">
       <div className="w-full max-w-md rounded-lg bg-gray-800 p-8 text-white shadow-lg">
