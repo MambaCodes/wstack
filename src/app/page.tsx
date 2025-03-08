@@ -68,6 +68,7 @@ export default function Home() {
 
           <Link
             href="https://github.com/MambaCodes/wstack-docs"
+            target='_blank'
             className="group rounded-lg border border-gray-800 px-5 py-4 transition-colors hover:border-gray-500 hover:bg-gray-900"
           >
             <h2 className={`  mb-3 text-2xl font-semibold`}>
@@ -98,6 +99,7 @@ export default function Home() {
 
           <Link
             href="https://github.com/MambaCodes/wstack-docs"
+            target='_blank'
             className="group rounded-lg border border-gray-800 px-5 py-4 transition-colors hover:border-gray-500 hover:bg-gray-900"
           >
             <h2 className={`  mb-3 text-2xl font-semibold`}>
@@ -127,8 +129,9 @@ export default function Home() {
           </Link>
 
           <Link
-            href="#contact"
+            href="https://discord.gg/VFyDEVWx7s"
             className="group rounded-lg border border-gray-800 px-5 py-4 transition-colors hover:border-gray-500 hover:bg-gray-900"
+            target='_blank'
           >
             <h2 className={`  mb-3 text-2xl font-semibold`}>
               Contact{" "}
