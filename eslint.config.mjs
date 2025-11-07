@@ -1,16 +1,27 @@
 import js from '@eslint/js'
 import stylistic from '@stylistic/eslint-plugin'
 import importPlugin from 'eslint-plugin-import'
-import { defineConfig, globalIgnores } from 'eslint/config'
 import globals from 'globals'
 import tseslint from 'typescript-eslint'
 
-export default defineConfig([
-  globalIgnores(['**/node_modules/**/*', '**/dist/**/*', '**/build/**/*']),
+export default tseslint.config(
+  {
+    ignores: ['**/node_modules/**/*', '**/dist/**/*', '**/build/**/*'],
+  },
+  js.configs.recommended,
+  ...tseslint.configs.recommended,
   {
     files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'],
-    plugins: { js, import: importPlugin, '@stylistic': stylistic },
-    extends: ['js/recommended'],
+    plugins: {
+      import: importPlugin,
+      '@stylistic': stylistic,
+    },
+    languageOptions: {
+      globals: {
+        ...globals.browser,
+        ...globals.node,
+      },
+    },
     rules: {
       'import/order': [
         'error',
@@ -30,15 +41,6 @@ export default defineConfig([
           },
         },
       ],
-    },
-  },
-  {
-    files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'],
-    languageOptions: { globals: { ...globals.browser, ...globals.node } },
-  },
-  tseslint.configs.recommended,
-  {
-    rules: {
       'no-console': 'error',
       'object-shorthand': 'error',
       '@stylistic/quotes': [
@@ -52,4 +54,4 @@ export default defineConfig([
       'no-async-promise-executor': 'off',
     },
   },
-])
+)
