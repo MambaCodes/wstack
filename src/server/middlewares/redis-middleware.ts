@@ -17,7 +17,7 @@ export const rateLimiterMiddleware = async (c: Context, next: Next) => {
     const key = `rate_limit:${ip}`
 
     // Increment the number of requests for this IP address
-    let requests = await redis.incr(key)
+    const requests = await redis.incr(key)
 
     // If this is the first request, set the expiration time (60 seconds)
     if (requests === 1) {
@@ -31,7 +31,7 @@ export const rateLimiterMiddleware = async (c: Context, next: Next) => {
 
     // Proceed to the next middleware or route handler
     await next()
-  } catch (err) {
+  } catch {
     return c.json({ error: 'Internal server error' }, 500) // Handle Redis or other errors
   }
 }
@@ -60,7 +60,7 @@ export const cacheMiddleware = async (c: Context, next: Next) => {
       const body = await response.text()
       await redis.setex(cacheKey, 300, body) // Cache response for 5 minutes (300s)
     }
-  } catch (err) {
+  } catch {
     return c.json({ error: 'Internal server error' }, 500)
   }
 }

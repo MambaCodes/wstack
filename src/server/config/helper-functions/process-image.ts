@@ -9,7 +9,7 @@ async function processImage(imageBuffer: Buffer) {
       .toBuffer() // Convert to buffer ready for upload
 
     return optimizedImage
-  } catch (error) {
+  } catch {
     throw new Error('Error processing image')
   }
 }

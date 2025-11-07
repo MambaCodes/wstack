@@ -1,21 +1,20 @@
 'use client'
-import { useState } from 'react'
-import Login from './(auth)/login/page'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-
+import { ArrowRight } from 'lucide-react'
 import Image from 'next/image'
-import Link from "next/link"
-import { ArrowRight } from "lucide-react"
-import { Spotlight } from "@/components/spotlight-new";
+import Link from 'next/link'
+import { useState } from 'react'
+
+import { Spotlight } from '@/components/spotlight-new'
 
 export default function Home() {
   const [queryClient] = useState(() => new QueryClient())
 
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="flex min-h-screen flex-col items-center justify-between p-6 md:p-16 bg-black/[0.96] text-white relative overflow-hidden">
+      <div className="relative flex min-h-screen flex-col items-center justify-between overflow-hidden bg-black/[0.96] p-6 text-white md:p-16">
         <Spotlight />
-        <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm flex">
+        <div className="z-10 flex w-full max-w-5xl items-center justify-between font-mono text-sm">
           <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-800 bg-gradient-to-b from-zinc-900 pb-6 pt-8 backdrop-blur-2xl md:static md:w-auto md:rounded-xl md:border md:bg-gray-900 md:p-4">
             Get started by editing&nbsp;
             <code className="font-mono font-bold">src/app/page.tsx</code>
@@ -27,13 +26,20 @@ export default function Home() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              By <Image src="/mamba-white.svg" alt="Wstack Logo" width={150} height={66} priority />
+              By{' '}
+              <Image
+                src="/mamba-white.svg"
+                alt="Wstack Logo"
+                width={150}
+                height={66}
+                priority
+              />
             </Link>
           </div>
         </div>
 
         <div className="flex flex-col items-center justify-center text-center">
-          <div className="relative flex place-items-center mb-8 md:mt-12 mt-24">
+          <div className="relative mb-8 mt-24 flex place-items-center md:mt-12">
             <Image
               src="/wstack-white.svg"
               alt="Wstack Logo"
@@ -42,42 +48,42 @@ export default function Home() {
               priority
               className="relative dark:drop-shadow-[0_0_1.2rem_#ffffff70]"
             />
-            <span className='text-xs font-medium text-cyan-200'>BETA</span>
+            <span className="text-xs font-medium text-cyan-200">BETA</span>
           </div>
 
-          <h1 className={` text-2xl md:text-3xl lg:text-4xl mb-6 max-w-3xl`}>
+          <h1 className={'mb-6 max-w-3xl text-2xl md:text-3xl lg:text-4xl'}>
             The only starter kit you need to launch your startup—period.
           </h1>
         </div>
 
-        <div className="mb-32 grid text-center lg:mb-0 lg:grid-cols-3 lg:text-left gap-8 max-w-5xl">
+        <div className="mb-32 grid max-w-5xl gap-8 text-center lg:mb-0 lg:grid-cols-3 lg:text-left">
           <Link
             href="https://github.com/MambaCodes/wstack"
             className="group rounded-lg border border-gray-800 px-5 py-4 transition-colors hover:border-gray-500 hover:bg-gray-900"
           >
-            <h2 className={`  mb-3 text-2xl font-semibold`}>
-              Tech Stack{" "}
+            <h2 className={'mb-3 text-2xl font-semibold'}>
+              Tech Stack{' '}
               <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
                 <ArrowRight className="inline h-5 w-5" />
               </span>
             </h2>
-            <p className={`  m-0 max-w-[30ch] text-sm opacity-70`}>
+            <p className={'m-0 max-w-[30ch] text-sm opacity-70'}>
               See why we chose this stack.
             </p>
           </Link>
 
           <Link
             href="https://github.com/MambaCodes/wstack-docs"
-            target='_blank'
+            target="_blank"
             className="group rounded-lg border border-gray-800 px-5 py-4 transition-colors hover:border-gray-500 hover:bg-gray-900"
           >
-            <h2 className={`  mb-3 text-2xl font-semibold`}>
-              Documentation{" "}
+            <h2 className={'mb-3 text-2xl font-semibold'}>
+              Documentation{' '}
               <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
                 <ArrowRight className="inline h-5 w-5" />
               </span>
             </h2>
-            <p className={`  m-0 max-w-[30ch] text-sm opacity-70`}>
+            <p className={'m-0 max-w-[30ch] text-sm opacity-70'}>
               Find in-depth information about Wstack features and API.
             </p>
           </Link>
@@ -86,29 +92,29 @@ export default function Home() {
             href="https://github.com/MambaCodes/wstack"
             className="group rounded-lg border border-gray-800 px-5 py-4 transition-colors hover:border-gray-500 hover:bg-gray-900"
           >
-            <h2 className={`  mb-3 text-2xl font-semibold`}>
-              Templates{" "}
+            <h2 className={'mb-3 text-2xl font-semibold'}>
+              Templates{' '}
               <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
                 <ArrowRight className="inline h-5 w-5" />
               </span>
             </h2>
-            <p className={`  m-0 max-w-[30ch] text-sm opacity-70`}>
+            <p className={'m-0 max-w-[30ch] text-sm opacity-70'}>
               Discover and deploy boilerplate example Wstack projects.
             </p>
           </Link>
 
           <Link
             href="https://github.com/MambaCodes/wstack-docs"
-            target='_blank'
+            target="_blank"
             className="group rounded-lg border border-gray-800 px-5 py-4 transition-colors hover:border-gray-500 hover:bg-gray-900"
           >
-            <h2 className={`  mb-3 text-2xl font-semibold`}>
-              Prompts{" "}
+            <h2 className={'mb-3 text-2xl font-semibold'}>
+              Prompts{' '}
               <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
                 <ArrowRight className="inline h-5 w-5" />
               </span>
             </h2>
-            <p className={`  m-0 max-w-[30ch] text-sm opacity-70`}>
+            <p className={'m-0 max-w-[30ch] text-sm opacity-70'}>
               AI-focused starter kit with pre-built prompts.
             </p>
           </Link>
@@ -117,13 +123,13 @@ export default function Home() {
             href="/login"
             className="group rounded-lg border border-gray-800 px-5 py-4 transition-colors hover:border-gray-500 hover:bg-gray-900"
           >
-            <h2 className={`  mb-3 text-2xl font-semibold`}>
-              Authentication{" "}
+            <h2 className={'mb-3 text-2xl font-semibold'}>
+              Authentication{' '}
               <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
                 <ArrowRight className="inline h-5 w-5" />
               </span>
             </h2>
-            <p className={`  m-0 max-w-[30ch] text-sm opacity-70`}>
+            <p className={'m-0 max-w-[30ch] text-sm opacity-70'}>
               See how we use NextAuth for Wstack.
             </p>
           </Link>
@@ -131,20 +137,20 @@ export default function Home() {
           <Link
             href="https://discord.gg/VFyDEVWx7s"
             className="group rounded-lg border border-gray-800 px-5 py-4 transition-colors hover:border-gray-500 hover:bg-gray-900"
-            target='_blank'
+            target="_blank"
           >
-            <h2 className={`  mb-3 text-2xl font-semibold`}>
-              Contact{" "}
+            <h2 className={'mb-3 text-2xl font-semibold'}>
+              Contact{' '}
               <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
                 <ArrowRight className="inline h-5 w-5" />
               </span>
             </h2>
-            <p className={`  m-0 max-w-[30ch] text-sm opacity-70`}>
+            <p className={'m-0 max-w-[30ch] text-sm opacity-70'}>
               Get in touch with us on Discord.
             </p>
           </Link>
         </div>
-    </div>
+      </div>
     </QueryClientProvider>
   )
 }

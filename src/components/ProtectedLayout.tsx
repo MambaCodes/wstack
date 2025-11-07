@@ -1,7 +1,7 @@
 'use client'
 
-import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
+import { useSession } from 'next-auth/react'
 import { ReactNode, useEffect } from 'react'
 
 export default function ProtectedLayout({ children }: { children: ReactNode }) {
