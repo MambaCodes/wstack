@@ -6,8 +6,9 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint && eslint . --ext .ts,.tsx --fix",
-    "format": "prettier --write --ignore-path .gitignore --cache ."
+    "lint": "next lint && eslint . --ext .ts,.tsx",
+    "lint:fix": "eslint . --ext .ts,.tsx --fix",
+    "format:lint": "prettier --write --ignore-path .gitignore --cache . && eslint . --ext .ts,.tsx --fix"
   },
   "dependencies": {
     "@auth/prisma-adapter": "^2.8.0",
