@@ -1,6 +1,8 @@
-import winston from 'winston'
-import 'winston-daily-rotate-file'
 import path from 'path'
+
+import winston from 'winston'
+
+import 'winston-daily-rotate-file'
 
 const logFormat = winston.format.combine(
   winston.format.timestamp({ format: 'YYYY-MM-DD HH:mm:ss' }),

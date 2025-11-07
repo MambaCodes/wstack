@@ -1,5 +1,5 @@
 import type { Context, Next } from 'hono'
-import { log } from '@/lib/logger'
+
 import { auth } from '@/lib/auth'
 
 export const authMiddleware = async (c: Context, next: Next) => {
@@ -12,7 +12,7 @@ export const authMiddleware = async (c: Context, next: Next) => {
 
     c.set('user', session.user) // Attach user data to context
     await next()
-  } catch (err) {
+  } catch {
     return c.json({ error: 'Internal server error' }, 500)
   }
 }

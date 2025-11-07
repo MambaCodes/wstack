@@ -1,4 +1,5 @@
 import { s3 } from '../s3-config'
+
 import { processImage } from './process-image'
 
 interface CustomFile extends File {
@@ -19,7 +20,7 @@ const uploadToS3 = async (file: CustomFile, bucketName: string) => {
   try {
     const data = await s3.upload(params).promise()
     return data.Location
-  } catch (error) {
+  } catch {
     throw new Error('Error uploading file')
   }
 }

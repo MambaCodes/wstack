@@ -1,6 +1,7 @@
 import { Hono } from 'hono'
-import api from './routes/api'
+
 import { rateLimiterMiddleware } from './middlewares/redis-middleware'
+import api from './routes/api'
 
 const app = new Hono()
 

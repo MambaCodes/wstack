@@ -1,10 +1,11 @@
 import { PrismaAdapter } from '@next-auth/prisma-adapter'
 import { ObjectId } from 'mongodb'
 import NextAuth, { NextAuthOptions } from 'next-auth'
-import GoogleProvider from 'next-auth/providers/google'
+import { AdapterUser } from 'next-auth/adapters'
 import GithubProvider from 'next-auth/providers/github'
+import GoogleProvider from 'next-auth/providers/google'
+
 import { prisma } from './db'
-import { AdapterUser } from 'next-auth/adapters' // Import AdapterUser type
 
 // Create a standard Prisma adapter first
 const prismaAdapter = PrismaAdapter(prisma)
@@ -13,7 +14,7 @@ const prismaAdapter = PrismaAdapter(prisma)
 export const authOptions: NextAuthOptions = {
   adapter: {
     ...prismaAdapter,
-    // @ts-ignore
+    // @ts-expect-error - data is typed in the adapter
     createUser: async (data: {
       id: string
       name: string | null
@@ -57,7 +58,7 @@ export const authOptions: NextAuthOptions = {
         session.user = {
           ...session.user,
           id: token.sub,
-        } as any
+        } as AdapterUser
       }
       return session
     },
